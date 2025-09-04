@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Ryan11035",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
