@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryan11035 Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+<!-- Swiper CDN -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<!-- Three.js, GSAP, VanillaTilt -->
+<script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/vanillatilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="custom-cursor"></div>
+
+<!-- Hero Section -->
+<section id="hero" class="section">
+  <div class="bg-layer"></div>
+  <div class="bg-overlay"></div>
+  <div class="hero-content">
+    <h1>I’m Ryan11035</h1>
+    <div class="hero-cta">
+      <a href="#projects" class="btn primary" aria-label="我的作品">💼 我的作品</a>
+      <button class="btn ghost" id="btn-about" aria-label="關於我">ℹ️ 關於我</button>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-label="Scroll down">↓</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+  <h2>關於我</h2>
+  <div class="about-cards">
+    <div class="card" tabindex="0">
+      <h3>我是誰</h3>
+      <p>喜歡前端互動與 UI/UX 設計的小開發者。</p>
+    </div>
+    <div class="card" tabindex="0">
+      <h3>學歷</h3>
+      <p>資訊工程相關科系畢業。</p>
+    </div>
+    <div class="card" tabindex="0">
+      <h3>年齡</h3>
+      <p>20XX 年生，充滿好奇心與創意。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+  <h2>我學的東西</h2>
+  <div id="skills-orbs">
+    <canvas id="orb-js" class="orb-canvas" aria-label="JavaScript"></canvas>
+    <canvas id="orb-html" class="orb-canvas" aria-label="HTML"></canvas>
+    <canvas id="orb-css" class="orb-canvas" aria-label="CSS"></canvas>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section">
+  <h2>開源專案</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="assets/project1.jpg" alt="Project 1">
+        <p>Project 1 description</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/project2.jpg" alt="Project 2">
+        <p>Project 2 description</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/project3.jpg" alt="Project 3">
+        <p>Project 3 description</p>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- Summary Section -->
+<section id="summary" class="section">
+  <h2>我把想法做成作品，喜歡分享與學習。</h2>
+  <div class="contact-btns">
+    <a href="https://github.com/Ryan11035" class="btn ghost" aria-label="GitHub">GitHub</a>
+    <a href="mailto:example@gmail.com" class="btn ghost" aria-label="Gmail">Gmail</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  Copyright © 2025 Ryan11035. ALL RIGHT REVEREND.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
