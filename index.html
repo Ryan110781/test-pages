@@ -1,166 +1,198 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ryan11035 — Portfolio</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- CDN libraries (static) -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <script defer src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
-  <script defer src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script defer src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
-  <script defer src="https://unpkg.com/vanillatilt@1.7.2/dist/vanilla-tilt.min.js"></script>
-  <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <!-- meta for theme-color -->
-  <meta name="theme-color" content="#071025">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan11035 - 個人作品集</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- particle canvas (background) -->
-  <canvas id="bg-particles" class="bg-canvas" aria-hidden="true"></canvas>
-
-  <!-- animated gradient layer -->
-  <div class="bg-layer" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
-
-  <!-- Custom cursor (desktop only) -->
-  <div id="custom-cursor" aria-hidden="true"></div>
-
-  <!-- Page wrapper (scroll-snap) -->
-  <main id="main" class="snap-container">
-
-    <!-- HERO -->
-    <section id="hero" class="section" role="region" aria-label="首頁">
-      <div class="hero-inner">
-        <div class="hero-content" role="article">
-          <h1 class="hero-title">I’m Ryan11035</h1>
-          <!-- note: removed the specified sentence per requirement -->
-          <p class="hero-tagline" aria-hidden="true">把設計與互動做成可用的作品</p>
-
-          <div class="hero-cta">
-            <a href="#projects" class="btn primary" role="button" aria-label="我的作品">
-              <span class="btn-icon">💼</span>
-              <span class="btn-label">我的作品</span>
-            </a>
-            <button class="btn ghost" id="btn-about" aria-label="關於我">
-              <span class="btn-icon">ℹ️</span>
-              <span class="btn-label">關於我</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <button class="scroll-hint" aria-label="往下滾動" title="Scroll down">↓</button>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section" role="region" aria-label="關於我">
-      <div class="section-inner">
-        <h2 class="section-title">關於我</h2>
-        <div class="about-cards">
-          <article class="card" tabindex="0" role="article" aria-label="我是誰">
-            <h3>我是誰</h3>
-            <p>喜歡前端互動與 UI/UX 設計的小開發者。</p>
-          </article>
-
-          <article class="card" tabindex="0" role="article" aria-label="學歷">
-            <h3>學歷</h3>
-            <p>資訊工程相關科系畢業。</p>
-          </article>
-
-          <article class="card" tabindex="0" role="article" aria-label="年齡">
-            <h3>年齡</h3>
-            <p>20XX 年生，充滿好奇與學習熱忱。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section" role="region" aria-label="技能">
-      <div class="section-inner">
-        <h2 class="section-title">我學的東西</h2>
-        <div id="skills-orbs" class="orbs-grid" role="group" aria-label="技能球">
-          <canvas id="orb-js" class="orb-canvas" width="300" height="300" aria-label="JavaScript"></canvas>
-          <canvas id="orb-html" class="orb-canvas" width="300" height="300" aria-label="HTML"></canvas>
-          <canvas id="orb-css" class="orb-canvas" width="300" height="300" aria-label="CSS"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section" role="region" aria-label="專案">
-      <div class="section-inner">
-        <h2 class="section-title">開源專案</h2>
-
-        <div class="swiper-container" aria-roledescription="carousel">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" role="group" aria-label="Project 1">
-              <div class="proj-card">
-                <img src="assets/project1.jpg" alt="Project 1 image">
-                <div class="proj-body">
-                  <h3>Project One</h3>
-                  <p class="tags">HTML • CSS • JavaScript</p>
+    <!-- 自定義游標 -->
+    <div id="custom-cursor"></div>
+    
+    <!-- 動態背景 -->
+    <canvas id="particle-bg"></canvas>
+    
+    <!-- 主畫面 Hero -->
+    <section id="hero" class="section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">I'm Ryan11035</h1>
+                <p class="hero-quote">創造有意義的數位體驗</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary">
+                        <span class="btn-icon">🚀</span>
+                        <span class="btn-label">我的作品</span>
+                    </a>
+                    <button class="btn ghost" id="btn-about">
+                        <span class="btn-icon">👋</span>
+                        <span class="btn-label">關於我</span>
+                    </button>
                 </div>
-              </div>
             </div>
-
-            <div class="swiper-slide" role="group" aria-label="Project 2">
-              <div class="proj-card">
-                <img src="assets/project2.jpg" alt="Project 2 image">
-                <div class="proj-body">
-                  <h3>Project Two</h3>
-                  <p class="tags">Vue • UI • Animation</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide" role="group" aria-label="Project 3">
-              <div class="proj-card">
-                <img src="assets/project3.jpg" alt="Project 3 image">
-                <div class="proj-body">
-                  <h3>Project Three</h3>
-                  <p class="tags">Three.js • WebGL</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- pagination only -->
-          <div class="swiper-pagination" aria-hidden="false"></div>
         </div>
-      </div>
+        <div class="scroll-hint" id="scroll-hint">
+            <span>↓</span>
+        </div>
     </section>
 
-    <!-- SUMMARY -->
-    <section id="summary" class="section" role="region" aria-label="總結">
-      <div class="section-inner">
-        <h2 class="summary-text">我把想法做成作品，喜歡分享與學習。</h2>
-        <div class="contact-btns">
-          <a class="btn ghost contact" href="https://github.com/Ryan11035" aria-label="GitHub (開新分頁)" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn ghost contact" href="mailto:example@gmail.com" aria-label="寄信">Gmail</a>
+    <!-- 關於我 About -->
+    <section id="about" class="section">
+        <div class="about-content">
+            <h2 class="section-title">關於我</h2>
+            <div class="about-cards">
+                <div class="about-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                    <div class="card-icon">🧑‍💻</div>
+                    <h3>我是誰</h3>
+                    <p>一個熱愛程式開發的創作者，專注於前端技術與使用者體驗設計，喜歡將創意想法轉化為實用的數位產品。</p>
+                </div>
+                <div class="about-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                    <div class="card-icon">🎓</div>
+                    <h3>學歷背景</h3>
+                    <p>持續學習中的開發者，透過實作專案和開源貢獻來精進技術能力，相信實戰經驗勝過紙上談兵。</p>
+                </div>
+                <div class="about-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                    <div class="card-icon">🌟</div>
+                    <h3>年齡與經驗</h3>
+                    <p>年輕的開發者，但擁有豐富的學習熱忱和創新思維，始終保持對新技術的好奇心和探索精神。</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-  </main>
+    <!-- 技能 Skills -->
+    <section id="skills" class="section">
+        <div class="skills-content">
+            <h2 class="section-title">我學的東西</h2>
+            <div class="skills-orbs">
+                <div class="orb-container">
+                    <canvas class="orb-canvas" data-skill="javascript"></canvas>
+                    <div class="orb-fallback">
+                        <img src="assets/icons/js.png" alt="JavaScript" />
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="orb-container">
+                    <canvas class="orb-canvas" data-skill="html"></canvas>
+                    <div class="orb-fallback">
+                        <img src="assets/icons/html.png" alt="HTML" />
+                        <span>HTML</span>
+                    </div>
+                </div>
+                <div class="orb-container">
+                    <canvas class="orb-canvas" data-skill="css"></canvas>
+                    <div class="orb-fallback">
+                        <img src="assets/icons/css.png" alt="CSS" />
+                        <span>CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer id="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <small>Copyright © 2025 Ryan11035. ALL RIGHT REVEREND.</small>
-    </div>
-  </footer>
+    <!-- 開源專案 Projects -->
+    <section id="projects" class="section">
+        <div class="projects-content">
+            <h2 class="section-title">開源專案</h2>
+            <div class="swiper projects-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/project1.jpg" alt="React Dashboard" />
+                            </div>
+                            <div class="project-info">
+                                <h3>React Dashboard</h3>
+                                <p>一個現代化的儀表板應用程式，使用 React 和 Chart.js 構建，提供直觀的數據視覺化和響應式設計。包含用戶管理、數據分析和即時更新功能。</p>
+                                <div class="project-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">Chart.js</span>
+                                    <span class="tag">Tailwind CSS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/project2.jpg" alt="Vue.js E-commerce" />
+                            </div>
+                            <div class="project-info">
+                                <h3>Vue.js E-commerce</h3>
+                                <p>功能完整的電商平台，採用 Vue 3 和 Composition API 開發，整合購物車、付款系統和用戶認證。支援商品搜尋、篩選和響應式購物體驗。</p>
+                                <div class="project-tags">
+                                    <span class="tag">Vue.js</span>
+                                    <span class="tag">Vuex</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/project3.jpg" alt="Three.js Playground" />
+                            </div>
+                            <div class="project-info">
+                                <h3>Three.js Playground</h3>
+                                <p>互動式 3D 體驗平台，展示 WebGL 和 Three.js 的強大功能。包含粒子系統、光影效果和物理模擬，提供沉浸式的視覺體驗和流暢的用戶互動。</p>
+                                <div class="project-tags">
+                                    <span class="tag">Three.js</span>
+                                    <span class="tag">WebGL</span>
+                                    <span class="tag">GLSL</span>
+                                    <span class="tag">Physics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Main script (defer) -->
-  <script src="script.js" defer></script>
+    <!-- 總介紹 Summary -->
+    <section id="summary" class="section">
+        <div class="summary-content">
+            <h2 class="section-title">聯繫我</h2>
+            <p class="summary-text">我把想法做成作品，喜歡分享與學習。</p>
+            <div class="contact-buttons">
+                <a href="https://github.com/ryan11035" class="contact-btn" target="_blank" rel="noopener">
+                    <span class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </span>
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:ryan11035@example.com" class="contact-btn">
+                    <span class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636C.732 21.003 0 20.271 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h3.819l6.545 4.91 6.545-4.91h3.819C23.268 3.821 24 4.553 24 5.457z"/>
+                        </svg>
+                    </span>
+                    <span>Gmail</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Ryan11035. ALL RIGHT REVEREND.</p>
+    </footer>
+
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
