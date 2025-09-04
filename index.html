@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ryan11035 — Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- CDN libraries (static) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script defer src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script defer src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script defer src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/vanillatilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- meta for theme-color -->
+  <meta name="theme-color" content="#071025">
+</head>
+<body>
+
+  <!-- particle canvas (background) -->
+  <canvas id="bg-particles" class="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- animated gradient layer -->
+  <div class="bg-layer" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Custom cursor (desktop only) -->
+  <div id="custom-cursor" aria-hidden="true"></div>
+
+  <!-- Page wrapper (scroll-snap) -->
+  <main id="main" class="snap-container">
+
+    <!-- HERO -->
+    <section id="hero" class="section" role="region" aria-label="首頁">
+      <div class="hero-inner">
+        <div class="hero-content" role="article">
+          <h1 class="hero-title">I’m Ryan11035</h1>
+          <!-- note: removed the specified sentence per requirement -->
+          <p class="hero-tagline" aria-hidden="true">把設計與互動做成可用的作品</p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn primary" role="button" aria-label="我的作品">
+              <span class="btn-icon">💼</span>
+              <span class="btn-label">我的作品</span>
+            </a>
+            <button class="btn ghost" id="btn-about" aria-label="關於我">
+              <span class="btn-icon">ℹ️</span>
+              <span class="btn-label">關於我</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button class="scroll-hint" aria-label="往下滾動" title="Scroll down">↓</button>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" role="region" aria-label="關於我">
+      <div class="section-inner">
+        <h2 class="section-title">關於我</h2>
+        <div class="about-cards">
+          <article class="card" tabindex="0" role="article" aria-label="我是誰">
+            <h3>我是誰</h3>
+            <p>喜歡前端互動與 UI/UX 設計的小開發者。</p>
+          </article>
+
+          <article class="card" tabindex="0" role="article" aria-label="學歷">
+            <h3>學歷</h3>
+            <p>資訊工程相關科系畢業。</p>
+          </article>
+
+          <article class="card" tabindex="0" role="article" aria-label="年齡">
+            <h3>年齡</h3>
+            <p>20XX 年生，充滿好奇與學習熱忱。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section" role="region" aria-label="技能">
+      <div class="section-inner">
+        <h2 class="section-title">我學的東西</h2>
+        <div id="skills-orbs" class="orbs-grid" role="group" aria-label="技能球">
+          <canvas id="orb-js" class="orb-canvas" width="300" height="300" aria-label="JavaScript"></canvas>
+          <canvas id="orb-html" class="orb-canvas" width="300" height="300" aria-label="HTML"></canvas>
+          <canvas id="orb-css" class="orb-canvas" width="300" height="300" aria-label="CSS"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section" role="region" aria-label="專案">
+      <div class="section-inner">
+        <h2 class="section-title">開源專案</h2>
+
+        <div class="swiper-container" aria-roledescription="carousel">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" role="group" aria-label="Project 1">
+              <div class="proj-card">
+                <img src="assets/project1.jpg" alt="Project 1 image">
+                <div class="proj-body">
+                  <h3>Project One</h3>
+                  <p class="tags">HTML • CSS • JavaScript</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide" role="group" aria-label="Project 2">
+              <div class="proj-card">
+                <img src="assets/project2.jpg" alt="Project 2 image">
+                <div class="proj-body">
+                  <h3>Project Two</h3>
+                  <p class="tags">Vue • UI • Animation</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide" role="group" aria-label="Project 3">
+              <div class="proj-card">
+                <img src="assets/project3.jpg" alt="Project 3 image">
+                <div class="proj-body">
+                  <h3>Project Three</h3>
+                  <p class="tags">Three.js • WebGL</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- pagination only -->
+          <div class="swiper-pagination" aria-hidden="false"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMMARY -->
+    <section id="summary" class="section" role="region" aria-label="總結">
+      <div class="section-inner">
+        <h2 class="summary-text">我把想法做成作品，喜歡分享與學習。</h2>
+        <div class="contact-btns">
+          <a class="btn ghost contact" href="https://github.com/Ryan11035" aria-label="GitHub (開新分頁)" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost contact" href="mailto:example@gmail.com" aria-label="寄信">Gmail</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <small>Copyright © 2025 Ryan11035. ALL RIGHT REVEREND.</small>
+    </div>
+  </footer>
+
+  <!-- Main script (defer) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
